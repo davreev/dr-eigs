@@ -42,5 +42,4 @@ FetchContent_MakeAvailable(dr-eigs)
 # Link other targets e.g.
 add_executable(my-app main.cpp)
 target_link_libraries(my-app PRIVATE dr::eigs)
-)
 ```

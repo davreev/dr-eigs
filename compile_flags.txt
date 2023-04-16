@@ -1,0 +1,10 @@
+-xc++
+-std=c++17
+-Iinclude/
+-Ibuild/_deps/eigen-src/
+-Ibuild/_deps/dr-src/include/
+-Ibuild/_deps/fmt-src/include/
+-Ibuild/_deps/spectra-src/include/
+-Ibuild/_deps/utest-src/
+-DNOMINMAX
+-D_OPENMP
