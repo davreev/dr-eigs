@@ -2,25 +2,18 @@
 
 ![](https://github.com/davreev/dr-eigs/actions/workflows/test.yml/badge.svg)
 
-Utilities for eigendecomposition of sparse matrices
+Utilities for eigendecomposition of sparse matrices via [Spectra](https://github.com/yixuan/spectra)
 
 ## Build
 
-Build with CMake
+Use CMake to build
 
 > ⚠️ Currently only tested with Clang and GCC. MSVC is not supported.
 
 ```sh
 mkdir build
-cd build
-
-# If using a single-config generator (e.g. Unix Makefiles, Ninja)
-cmake -DCMAKE_BUILD_TYPE=(Debug|Release|RelWithDebInfo) [-DDR_EIGS_EXAMPLE=ON] [-DDR_EIGS_TEST=ON] ..
-cmake --build .
-
-# If using a multi-config generator (e.g. Ninja Multi-Config, Xcode)
-cmake [-DDR_EIGS_EXAMPLE=ON] [-DDR_EIGS_TEST=ON] ..
-cmake --build . --config (Debug|Release|RelWithDebInfo)
+cmake -S . -B ./build -G <generator> [-DDR_EIGS_TEST=ON]
+cmake --build ./build [--config <config>]
 ```
 
 ## Usage
