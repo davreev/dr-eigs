@@ -3,13 +3,11 @@ if(TARGET utest::utest)
 endif()
 
 include(FetchContent)
-set(FETCHCONTENT_QUIET FALSE) # Show download progress
 
 FetchContent_Declare(
     utest
-    GIT_REPOSITORY https://github.com/sheredom/utest.h.git
-    GIT_TAG 7582e54960503b0279e49f2c3bbce1d0a925d361
-    GIT_PROGRESS TRUE
+    URL https://raw.githubusercontent.com/sheredom/utest.h/7582e54960503b0279e49f2c3bbce1d0a925d361/utest.h
+    DOWNLOAD_NO_EXTRACT TRUE
 )
 
 FetchContent_GetProperties(utest)
@@ -27,12 +25,11 @@ target_include_directories(
         "${utest_SOURCE_DIR}"
 )
 
-# Target includes windows.h without defines for avoiding macro clash :(
+# Avoid windows.h min/max macro clash
 if(WIN32)
     target_compile_definitions(
         utest
         INTERFACE
-            WIN32_LEAN_AND_MEAN
             NOMINMAX
     )
 endif()

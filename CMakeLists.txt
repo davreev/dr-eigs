@@ -16,8 +16,11 @@ list(
     "${CMAKE_CURRENT_LIST_DIR}/cmake/"
 )
 
+# Show FetchContent download progress
+set(FETCHCONTENT_QUIET FALSE)
+
 #
-# Library target
+# Targets
 #
 
 add_library(dr-eigs INTERFACE)
@@ -45,26 +48,9 @@ target_compile_options(
         -Wall -Wextra -Wpedantic -Werror
 )
 
-target_compile_definitions(
-    dr-eigs
-    INTERFACE
-        # ...
-)
-
-target_link_options(
-    dr-eigs
-    INTERFACE
-        # ...
-)
-
 #
 # Optional targets
 #
-
-option(DR_EIGS_EXAMPLE "Generate example targets" OFF)
-if(DR_EIGS_EXAMPLE)
-    add_subdirectory(example)
-endif()
 
 option(DR_EIGS_TEST "Generate test target" OFF)
 if(DR_EIGS_TEST)

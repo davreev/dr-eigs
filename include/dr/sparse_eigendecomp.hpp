@@ -98,15 +98,15 @@ struct SparseSymEigendecomp
         return info_ == Spectra::CompInfo::Successful;
     }
 
-    MatN<Real> const& eigenvecs() const { return eigenvecs_; }
+    Mat<Real> const& eigenvecs() const { return eigenvecs_; }
 
-    VecN<Real> const& eigenvals() const { return eigenvals_; }
+    Vec<Real> const& eigenvals() const { return eigenvals_; }
 
     Spectra::CompInfo const& info() const { return info_; }
 
   private:
-    MatN<Real> eigenvecs_;
-    VecN<Real> eigenvals_;
+    Mat<Real> eigenvecs_;
+    Vec<Real> eigenvals_;
     Spectra::CompInfo info_{Spectra::CompInfo::NotComputed};
 };
 

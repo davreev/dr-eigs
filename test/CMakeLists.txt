@@ -20,18 +20,6 @@ target_compile_options(
         -Wall -Wextra -Wpedantic -Werror
 )
 
-target_compile_definitions(
-    dr-eigs-test
-    PRIVATE 
-        # ...
-)
-
-target_link_options(
-    dr-eigs-test
-    PRIVATE
-        # ...
-)
-
 add_test(
     NAME dr-eigs-test
     COMMAND dr-eigs-test
