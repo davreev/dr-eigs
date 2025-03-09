@@ -38,12 +38,13 @@ struct SparseSymEigendecomp
         Index const n = A.rows();
         Index const conv = count * 2;
 
+        // Perform solve
         Op op{A};
         Solver solver{op, count, (conv > n) ? n : conv, sigma};
         solver.init();
         solver.compute(sort_rule);
 
-        // Cache results
+        // Extract results
         eigenvecs_ = solver.eigenvectors();
         eigenvals_ = solver.eigenvalues();
         info_ = solver.info();
@@ -84,13 +85,14 @@ struct SparseSymEigendecomp
         Index const n = A.rows();
         Index const conv = count * 2;
 
+        // Perform solve
         Op op{A, B};
         OpB op_b{B};
         Solver solver(op, op_b, count, (conv > n) ? n : conv, sigma);
         solver.init();
         solver.compute(sort_rule);
 
-        // Cache results
+        // Extract results
         eigenvecs_ = solver.eigenvectors();
         eigenvals_ = solver.eigenvalues();
         info_ = solver.info();
