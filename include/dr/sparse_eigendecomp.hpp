@@ -13,7 +13,7 @@ namespace dr
 {
 
 template <typename Real>
-struct SparseSymEigendecomp
+struct SparseEigendecomp
 {
     static_assert(is_real<Real>);
 
@@ -24,7 +24,7 @@ struct SparseSymEigendecomp
     /// value of 1/(λ-σ) rather than λ directly. For example, shifting by zero and sorting by
     /// largest magnitude will return eigenpairs with the *smallest* absolute eigenvalues.
     template <typename Index>
-    bool solve_shift_inv(
+    bool solve_sym_shift_inv(
         SparseMat<Real, Index> const& A,
         Index const count,
         Real const sigma = Real{0.0},
@@ -59,7 +59,7 @@ struct SparseSymEigendecomp
     /// value of 1/(λ-σ) rather than λ directly. For example, shifting by zero and sorting by
     /// largest magnitude will return eigenpairs with the *smallest* absolute eigenvalues.
     template <typename Index>
-    bool solve_shift_inv(
+    bool solve_sym_shift_inv(
         SparseMat<Real, Index> const& A,
         SparseMat<Real, Index> const& B,
         Index const count,

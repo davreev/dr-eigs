@@ -3,7 +3,7 @@
 #include <dr/basic_types.hpp>
 #include <dr/sparse_eigendecomp.hpp>
 
-UTEST(sparse_eigendecomp, solve_shift_inv)
+UTEST(sparse_eigendecomp, solve_sym_shift_inv)
 {
     using namespace dr;
 
@@ -18,10 +18,10 @@ UTEST(sparse_eigendecomp, solve_shift_inv)
     SparseMat<f64> A{5, 5};
     A.setFromTriplets(std::begin(coeffs), std::end(coeffs));
 
-    SparseSymEigendecomp<f64> eigs{};
+    SparseEigendecomp<f64> eigs{};
     constexpr f64 eps = 1.0e-8;
 
-    eigs.solve_shift_inv(A, 3, 0.0, Spectra::SortRule::LargestMagn);
+    eigs.solve_sym_shift_inv(A, 3, 0.0, Spectra::SortRule::LargestMagn);
     ASSERT_TRUE(eigs.info() == Spectra::CompInfo::Successful);
 
     {
@@ -31,7 +31,7 @@ UTEST(sparse_eigendecomp, solve_shift_inv)
         ASSERT_NEAR(evals[2], 0.25, eps);
     }
 
-    eigs.solve_shift_inv(A, 3, 0.0, Spectra::SortRule::SmallestMagn);
+    eigs.solve_sym_shift_inv(A, 3, 0.0, Spectra::SortRule::SmallestMagn);
     ASSERT_TRUE(eigs.info() == Spectra::CompInfo::Successful);
 
     {
