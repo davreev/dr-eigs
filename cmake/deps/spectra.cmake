@@ -6,7 +6,7 @@ include(FetchContent)
 
 FetchContent_Declare(
     spectra
-    URL https://github.com/yixuan/spectra/archive/refs/tags/v1.0.1.zip
+    URL https://github.com/yixuan/spectra/archive/refs/tags/v1.2.0.zip
 )
 
 FetchContent_GetProperties(spectra)
